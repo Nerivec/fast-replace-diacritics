@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "rootDir": "src",
+        "outDir": "dist",
+        "module": "preserve",
+        "moduleResolution": "bundler",
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "isolatedDeclarations": true,
+        "verbatimModuleSyntax": true,
+        "target": "esnext",
+        "lib": ["ESNext"],
+        "declaration": true,
+        "declarationMap": true,
+        "emitDeclarationOnly": true,
+        "strict": true
+    },
+    "include": ["./src/**/*.ts", "test/diacritics-plain.ts"]
+}
