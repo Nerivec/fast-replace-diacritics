@@ -22,14 +22,14 @@ describe("Reference", () => {
         () => {
             noop(replaceDiacritics("Iлｔèｒnåｔïｏnɑｌíƶａｔï߀ԉ"));
         },
-        { warmupTime: 1000, time: 5000 },
+        { warmupTime: 1000 },
     );
     bench(
         "tradReplaceDiacritics",
         () => {
             noop(tradReplaceDiacritics("Iлｔèｒnåｔïｏnɑｌíƶａｔï߀ԉ"));
         },
-        { warmupTime: 1000, time: 5000 },
+        { warmupTime: 1000 },
     );
 });
 
@@ -39,14 +39,14 @@ describe("Simple single-char", () => {
         () => {
             noop(replaceDiacritics("niño"));
         },
-        { warmupTime: 1000, time: 5000 },
+        { warmupTime: 1000 },
     );
     bench(
         "tradReplaceDiacritics",
         () => {
             noop(tradReplaceDiacritics("niño"));
         },
-        { warmupTime: 1000, time: 5000 },
+        { warmupTime: 1000 },
     );
 });
 
@@ -56,14 +56,14 @@ describe("Simple dual-char", () => {
         () => {
             noop(replaceDiacritics("cœur"));
         },
-        { warmupTime: 1000, time: 5000 },
+        { warmupTime: 1000 },
     );
     bench(
         "tradReplaceDiacritics",
         () => {
             noop(tradReplaceDiacritics("cœur"));
         },
-        { warmupTime: 1000, time: 5000 },
+        { warmupTime: 1000 },
     );
 });
 
@@ -73,14 +73,14 @@ describe("1-char string", () => {
         () => {
             noop(replaceDiacritics("w"));
         },
-        { warmupTime: 1000, time: 5000 },
+        { warmupTime: 1000 },
     );
     bench(
         "tradReplaceDiacritics",
         () => {
             noop(tradReplaceDiacritics("w"));
         },
-        { warmupTime: 1000, time: 5000 },
+        { warmupTime: 1000 },
     );
 });
 
@@ -90,13 +90,13 @@ describe("No replacement", () => {
         () => {
             noop(replaceDiacritics("dragons"));
         },
-        { warmupTime: 1000, time: 5000 },
+        { warmupTime: 1000 },
     );
     bench(
         "tradReplaceDiacritics",
         () => {
             noop(tradReplaceDiacritics("dragons"));
         },
-        { warmupTime: 1000, time: 5000 },
+        { warmupTime: 1000 },
     );
 });
