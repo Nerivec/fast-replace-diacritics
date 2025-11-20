@@ -1,6 +1,6 @@
 {
   "name": "fast-replace-diacritics",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "2-5x faster diacritics replacement compared to traditional 'str.replace'",
   "keywords": [
     "diacritics",
@@ -40,9 +40,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.5",
-    "@vitest/coverage-v8": "^4.0.9",
-    "tsdown": "^0.16.4",
+    "@vitest/coverage-v8": "^4.0.12",
+    "tsdown": "^0.16.6",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.9"
+    "vitest": "^4.0.12"
   }
 }

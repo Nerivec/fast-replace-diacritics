@@ -7,6 +7,8 @@
 
 Uses code points and direct string manipulation. Intended for use in search-like scenario.
 
+No dependencies.
+
 #### Traditional 'str.replace'?
 
 ```js
