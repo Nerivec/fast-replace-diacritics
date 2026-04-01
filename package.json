@@ -42,7 +42,7 @@
     "@biomejs/biome": "^2.4.4",
     "@vitest/coverage-v8": "^4.0.18",
     "tsdown": "^0.20.3",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.2",
     "vitest": "^4.0.12"
   }
 }
