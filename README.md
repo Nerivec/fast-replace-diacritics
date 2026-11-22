@@ -36,54 +36,32 @@ You can also download `dist/index.js` from NPM to use directly:
 
 https://www.npmjs.com/package/fast-replace-diacritics?activeTab=code
 
-
-## Benchmarks (vitest on GH action runner)
+## Benchmarks
 
 [index.bench.ts](./test/index.bench.ts)
 
 > [!TIP]
-> Click on the `CI` badge at the top of the readme to see the latest runs.
+> Click on the `CI` badge at the top of the readme to see the latest runs in GH action runner.
 
 ```
-✓ test/index.bench.ts > Reference 21193ms
-name                             hz     min     max    mean     p75     p99    p995    p999     rme   samples
-· replaceDiacritics      3,132,848.74  0.0003  3.4313  0.0003  0.0003  0.0004  0.0006  0.0009  ±0.17%  15664244
-· tradReplaceDiacritics    825,294.48  0.0011  0.4770  0.0012  0.0012  0.0022  0.0023  0.0103  ±0.06%   4126474
-
-✓ test/index.bench.ts > Simple single-char 40549ms
-name                             hz     min     max    mean     p75     p99    p995    p999     rme   samples
-· replaceDiacritics      9,426,427.37  0.0001  0.1798  0.0001  0.0001  0.0001  0.0002  0.0002  ±0.05%  47132137
-· tradReplaceDiacritics  3,357,032.68  0.0003  0.3967  0.0003  0.0003  0.0003  0.0005  0.0008  ±0.08%  16785164
-
-✓ test/index.bench.ts > Simple dual-char 37012ms
-name                             hz     min     max    mean     p75     p99    p995    p999     rme   samples
-· replaceDiacritics      8,667,886.46  0.0001  0.7378  0.0001  0.0001  0.0001  0.0002  0.0002  ±0.04%  43339473
-· tradReplaceDiacritics  3,000,826.24  0.0003  0.4585  0.0003  0.0003  0.0004  0.0005  0.0009  ±0.06%  15004132
-
-✓ test/index.bench.ts > 1-char string 55942ms
-name                              hz     min     max    mean     p75     p99    p995    p999     rme   samples
-· replaceDiacritics      13,195,729.10  0.0001  0.1602  0.0001  0.0001  0.0001  0.0001  0.0001  ±0.03%  65978646
-· tradReplaceDiacritics   7,335,602.75  0.0001  1.0018  0.0001  0.0001  0.0002  0.0002  0.0004  ±0.15%  36678014
-
-✓ test/index.bench.ts > No replacement 45973ms
-name                             hz     min     max    mean     p75     p99    p995    p999     rme   samples
-· replaceDiacritics      9,102,157.51  0.0001  0.0845  0.0001  0.0001  0.0001  0.0001  0.0002  ±0.03%  45510788
-· tradReplaceDiacritics  7,207,826.72  0.0001  0.4877  0.0001  0.0001  0.0002  0.0002  0.0004  ±0.10%  36039134
-
-BENCH  Summary
-
-replaceDiacritics - test/index.bench.ts > Reference
-3.80x faster than tradReplaceDiacritics
-
-replaceDiacritics - test/index.bench.ts > Simple single-char
-2.81x faster than tradReplaceDiacritics
-
-replaceDiacritics - test/index.bench.ts > Simple dual-char
-2.89x faster than tradReplaceDiacritics
-
-replaceDiacritics - test/index.bench.ts > 1-char string
-1.80x faster than tradReplaceDiacritics
-
-replaceDiacritics - test/index.bench.ts > No replacement
-1.26x faster than tradReplaceDiacritics
+   ✓ Reference 5880ms
+     name                             hz     min     max    mean     p75     p99    p995    p999     rme  samples
+     replaceDiacritics      5,927,093.32  0.0002  7.2893  0.0002  0.0002  0.0002  0.0003  0.0004  ±1.43%  5791811   fastest
+     tradReplaceDiacritics  1,690,868.87  0.0005  0.1473  0.0006  0.0006  0.0006  0.0007  0.0011  ±0.08%  1675852
+   ✓ Simple single-char 10618ms
+     name                              hz     min      max    mean     p75     p99    p995    p999     rme   samples
+     replaceDiacritics      17,216,448.58  0.0000  44.9558  0.0001  0.0001  0.0001  0.0001  0.0001  ±8.81%  16222183   fastest
+     tradReplaceDiacritics   8,422,705.62  0.0001  48.4061  0.0001  0.0001  0.0001  0.0002  0.0003  ±9.49%   7877936
+   ✓ Simple dual-char 9703ms
+     name                              hz     min      max    mean     p75     p99    p995    p999     rme   samples
+     replaceDiacritics      16,385,509.59  0.0000   0.2460  0.0001  0.0001  0.0001  0.0001  0.0001  ±0.08%  16196399   fastest
+     tradReplaceDiacritics   7,316,472.01  0.0001  49.7596  0.0001  0.0001  0.0002  0.0002  0.0006  ±9.75%   6770290
+   ✓ 1-char string 12810ms
+     name                              hz     min     max    mean     p75     p99    p995    p999     rme   samples
+     replaceDiacritics      20,553,740.93  0.0000  0.0604  0.0000  0.0001  0.0001  0.0001  0.0001  ±0.05%  20266045   fastest
+     tradReplaceDiacritics  14,938,047.17  0.0001  0.2836  0.0001  0.0001  0.0001  0.0001  0.0002  ±0.17%  14541408
+   ✓ No replacement 10953ms
+     name                              hz     min      max    mean     p75     p99    p995    p999     rme   samples
+     replaceDiacritics      14,495,776.32  0.0001   0.0332  0.0001  0.0001  0.0001  0.0001  0.0001  ±0.04%  14354808   fastest
+     tradReplaceDiacritics  14,329,706.47  0.0001  36.6136  0.0001  0.0001  0.0001  0.0001  0.0003  ±7.18%  13492125
 ```

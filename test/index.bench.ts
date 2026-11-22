@@ -1,4 +1,4 @@
-import { bench, describe } from "vitest";
+import { test } from "vitest";
 import { CODE_POINT_REPLACEMENTS, replaceDiacritics } from "../src/index.js";
 
 const noop = (..._args: unknown[]) => {};
@@ -16,87 +16,62 @@ const tradReplaceDiacritics = (str: string) => {
     });
 };
 
-describe("Reference", () => {
-    bench(
-        "replaceDiacritics",
-        () => {
+test("Reference", async ({ bench }) => {
+    await bench.compare(
+        bench("replaceDiacritics", () => {
             noop(replaceDiacritics("Iлｔèｒnåｔïｏnɑｌíƶａｔï߀ԉ"));
-        },
-        { warmupTime: 1000 },
-    );
-    bench(
-        "tradReplaceDiacritics",
-        () => {
+        }),
+        bench("tradReplaceDiacritics", () => {
             noop(tradReplaceDiacritics("Iлｔèｒnåｔïｏnɑｌíƶａｔï߀ԉ"));
-        },
+        }),
         { warmupTime: 1000 },
     );
 });
 
-describe("Simple single-char", () => {
-    bench(
-        "replaceDiacritics",
-        () => {
+test("Simple single-char", async ({ bench }) => {
+    await bench.compare(
+        bench("replaceDiacritics", () => {
             noop(replaceDiacritics("niño"));
-        },
-        { warmupTime: 1000 },
-    );
-    bench(
-        "tradReplaceDiacritics",
-        () => {
+        }),
+        bench("tradReplaceDiacritics", () => {
             noop(tradReplaceDiacritics("niño"));
-        },
+        }),
         { warmupTime: 1000 },
     );
 });
 
-describe("Simple dual-char", () => {
-    bench(
-        "replaceDiacritics",
-        () => {
+test("Simple dual-char", async ({ bench }) => {
+    await bench.compare(
+        bench("replaceDiacritics", () => {
             noop(replaceDiacritics("cœur"));
-        },
-        { warmupTime: 1000 },
-    );
-    bench(
-        "tradReplaceDiacritics",
-        () => {
+        }),
+        bench("tradReplaceDiacritics", () => {
             noop(tradReplaceDiacritics("cœur"));
-        },
+        }),
         { warmupTime: 1000 },
     );
 });
 
-describe("1-char string", () => {
-    bench(
-        "replaceDiacritics",
-        () => {
+test("1-char string", async ({ bench }) => {
+    await bench.compare(
+        bench("replaceDiacritics", () => {
             noop(replaceDiacritics("w"));
-        },
-        { warmupTime: 1000 },
-    );
-    bench(
-        "tradReplaceDiacritics",
-        () => {
+        }),
+        bench("tradReplaceDiacritics", () => {
             noop(tradReplaceDiacritics("w"));
-        },
+        }),
         { warmupTime: 1000 },
     );
 });
 
-describe("No replacement", () => {
-    bench(
-        "replaceDiacritics",
-        () => {
+test("No replacement", async ({ bench }) => {
+    await bench.compare(
+        bench("replaceDiacritics", () => {
             noop(replaceDiacritics("dragons"));
-        },
-        { warmupTime: 1000 },
-    );
-    bench(
-        "tradReplaceDiacritics",
-        () => {
+        }),
+        bench("tradReplaceDiacritics", () => {
             noop(tradReplaceDiacritics("dragons"));
-        },
+        }),
         { warmupTime: 1000 },
     );
 });
